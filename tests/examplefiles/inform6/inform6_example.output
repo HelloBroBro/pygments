@@ -41,7 +41,7 @@
 'Release'     Keyword
 ' '           Text
 ''            Text
-'5'           Literal.Number.Integer
+'6'           Literal.Number.Integer
 ''            Punctuation
 ';'           Punctuation
 '\n'          Text
@@ -50,7 +50,7 @@
 ' '           Text
 ''            Text
 '"'           Literal.String.Double
-'220125'      Literal.String.Double
+'240210'      Literal.String.Double
 '"'           Literal.String.Double
 ''            Punctuation
 ';'           Punctuation
@@ -1416,7 +1416,15 @@
 ';'           Punctuation
 '\n    '      Text
 ''            Text
-'3'           Literal.Number.Integer
+'('           Punctuation
+''            Text
+'Constant4'   Name
+' '           Text
+'+'           Operator
+' '           Text
+''            Text
+'Constant6'   Name
+')'           Punctuation
 ':'           Punctuation
 ' '           Text
 ''            Keyword
@@ -1946,7 +1954,8 @@
 ' '           Text
 ''            Text
 "'"           Literal.String.Single
-'q//'         Literal.String.Single
+'q'           Literal.String.Single
+'//'          Literal.String.Escape
 "'"           Literal.String.Single
 ':'           Punctuation
 '\n        '  Text
@@ -1972,6 +1981,33 @@
 'return'      Keyword
 ''            Punctuation
 ';'           Punctuation
+'\n        '  Text
+'#'           Punctuation
+'Ifdef'       Keyword
+' '           Text
+''            Text
+'TARGET_ZCODE' Name.Builtin
+''            Punctuation
+';'           Punctuation
+'\n        '  Text
+'@'           Keyword
+' '           Text
+'->'          Punctuation
+' '           Text
+''            Text
+'$8B'         Literal.Number.Hex
+' '           Text
+''            Text
+'$04'         Literal.Number.Hex
+' '           Text
+''            Text
+'$D2'         Literal.Number.Hex
+';'           Punctuation
+'\n        '  Text
+'#'           Punctuation
+'Endif'       Keyword
+''            Punctuation
+';'           Punctuation
 '\n    '      Text
 ''            Text
 "'"           Literal.String.Single
@@ -1981,7 +2017,8 @@
 ' '           Text
 ''            Text
 "'"           Literal.String.Single
-'p//'         Literal.String.Single
+'p'           Literal.String.Single
+'//~p'        Literal.String.Escape
 "'"           Literal.String.Single
 ':'           Punctuation
 '\n        '  Text
@@ -2071,7 +2108,8 @@
 ' '           Text
 ''            Text
 "'"           Literal.String.Single
-'plugh//p'    Literal.String.Single
+'plugh'       Literal.String.Single
+'//p'         Literal.String.Escape
 "'"           Literal.String.Single
 ','           Punctuation
 ' '           Text
