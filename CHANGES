@@ -12,6 +12,7 @@ Version 2.18.0
   * Janet (#2557)
   * Typst (#2596)
   * Lean 4 (#2618, #2626)
+  * Mojo (#2691, #2515)
   * org-mode (#2636)
   * Promela (#2620)
   * Soong / ``Android.bp`` (#2659)
@@ -55,6 +56,8 @@ Version 2.18.0
   ``.. versionadded::`` directive in the docstring (#2589)
 - The ``url`` attribute is now required for built-in lexers and
   has been added to all existing lexers (#2588)
+- The RTF formatter supports line number and line highlighting now (#1217, #2654)
+- Add ``\sa0`` keyword in the RTF formatter (#1111, #2607)
 
 Version 2.17.2
 --------------
