@@ -74,6 +74,7 @@ class CSharpLexer(RegexLexer):
     for levelname, cs_ident in levels.items():
         tokens[levelname] = {
             'root': [
+                include('numbers'),
                 # method names
                 (r'^([ \t]*)((?:' + cs_ident + r'(?:\[\])?\s+)+?)'  # return type
                  r'(' + cs_ident + ')'                            # method name
@@ -117,13 +118,28 @@ class CSharpLexer(RegexLexer):
                  r'unchecked|unsafe|virtual|void|while|'
                  r'get|set|new|partial|yield|add|remove|value|alias|ascending|'
                  r'descending|from|group|into|orderby|select|thenby|where|'
-                 r'join|equals)\b', Keyword),
+                 r'join|equals|file)\b', Keyword),   #2710 Add the keyword 'file' here
                 (r'(global)(::)', bygroups(Keyword, Punctuation)),
                 (r'(bool|byte|char|decimal|double|dynamic|float|int|long|object|'
                  r'sbyte|short|string|uint|ulong|ushort|var)\b\??', Keyword.Type),
                 (r'(class|struct)(\s+)', bygroups(Keyword, Whitespace), 'class'),
                 (r'(namespace|using)(\s+)', bygroups(Keyword, Whitespace), 'namespace'),
                 (cs_ident, Name),
+            ],
+            'numbers_int': [
+                (r"0[xX][0-9a-fA-F]+(([uU][lL]?)|[lL][uU]?)?", Number.Hex),
+                (r"0[bB][01]+(([uU][lL]?)|[lL][uU]?)?", Number.Bin),
+                (r"[0-9]+(([uU][lL]?)|[lL][uU]?)?", Number.Integer),
+            ],
+            'numbers_float': [
+                (r"([0-9]+\.[0-9]+([eE][+-]?[0-9]+)?[fFdDmM]?)|"
+                 r"(\.[0-9]+([eE][+-]?[0-9]+)?[fFdDmM]?)|"
+                 r"([0-9]+([eE][+-]?[0-9]+)[fFdDmM]?)|"
+                 r"([0-9]+[fFdDmM])", Number.Float),
+            ],
+            'numbers': [
+                include('numbers_float'),
+                include('numbers_int'),
             ],
             'class': [
                 (cs_ident, Name.Class, '#pop'),
